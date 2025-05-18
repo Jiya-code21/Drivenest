@@ -7,7 +7,7 @@ import Login from "./pages/Login"
 import Logout from "./pages/Logout"
 import Dashboard from "./pages/Dashboard"
 import Error from "./pages/Error"
-
+import "./App.css"
 
 function App(){
   return (
