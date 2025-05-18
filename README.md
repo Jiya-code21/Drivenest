@@ -1,4 +1,5 @@
 📁 Folder-Based Image Manager
+
 A Google Drive–like web application where users can register, create nested folders, upload images inside folders, and search images by name — all with user-specific access and secure authentication.
 
 🔧 Features
