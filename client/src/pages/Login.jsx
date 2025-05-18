@@ -80,23 +80,27 @@ await userAuthentication();
               required
             />
           </div>
+<div className="mb-6 relative">
+  <label htmlFor="password" className="block text-gray-700 font-medium mb-1">Password</label>
+  <input
+    type={showPassword ? "text" : "password"}
+    id="password"
+    name="password"
+    value={user.password}
+    onChange={handleChange}
+    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10"
+    placeholder="Enter your password"
+    required
+  />
+  <span
+    onClick={() => setShowPassword(!showPassword)}
+    className="absolute inset-y-0 right-3 top-[38px] flex items-center cursor-pointer text-xl"
+  >
+    {showPassword ? '🙈' : '👁️'}
+  </span>
+</div>
 
-          <div className="mb-6">
-            <label htmlFor="password" className="block text-gray-700 font-medium mb-1">
-              Password
-            </label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={user.password}
-              onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter your password"
-              required
-            />
-          </div>
-
+        
           <button
             type="submit"
             className="w-full bg-indigo-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-indigo-400 transition-colors"
