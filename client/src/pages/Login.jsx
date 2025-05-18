@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import {useAuth} from "../store/auth"
 import {toast} from "react-toastify"
+
 const URL=`${import.meta.env.VITE_BACKEND_URI}/api/auth/login`
 
 function Login(){
@@ -9,7 +10,7 @@ function Login(){
     email:'',
     password:''
   })
-
+const [showPassword,setShowPassword]=useState(false) 
   const navigate=useNavigate();
   const {storeTokenInLS,userAuthentication}=useAuth();
 
@@ -80,22 +81,28 @@ await userAuthentication();
               required
             />
           </div>
- <div className="mb-6">
+  <div className="mb-6 relative">
             <label htmlFor="password" className="block text-gray-700 font-medium mb-1">
               Password
             </label>
             <input
-              type="password"
+              type={showPassword ? "text" : "password"}
               id="password"
               name="password"
               value={user.password}
               onChange={handleChange}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 pr-10"
               placeholder="Enter your password"
               required
             />
+            <span
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-[38px] cursor-pointer text-xl"
+              title={showPassword ? "Hide Password" : "Show Password"}
+            >
+              {showPassword ? '🙈' : '👁️'}
+            </span>
           </div>
-
         
           <button
             type="submit"
