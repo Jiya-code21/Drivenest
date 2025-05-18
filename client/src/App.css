@@ -75,21 +75,35 @@ main {
   z-index: 11000 !important; 
 }
 
+/* final code */
+
+/* Toastify container at top-center */
 .Toastify__toast-container--top-center {
-  top: 64px !important;         
+  top: 64px !important;
   left: 50% !important;
   transform: translateX(-50%);
+  width: 100%;
   max-width: 500px;
-  width: 90vw;                 
-  padding: 0 10px;
+  padding: 0 1rem;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  pointer-events: none; /* Allow background interaction when no toast */
 }
+
+/* Each individual toast */
+.Toastify__toast {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  pointer-events: auto; /* Allow interaction with the toast */
+}
+
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .Toastify__toast-container--top-center {
-    top: 56px !important;   
+    top: 56px !important;
+    padding: 0 0.5rem;
   }
-}
-.Toastify__toast {
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
