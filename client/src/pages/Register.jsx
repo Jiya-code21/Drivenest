@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useNavigate} from "react-router-dom"
 import {useAuth} from "../store/auth"
 import {toast} from "react-toastify"
-import { signupSchema } from "../validators/auth_validators.js"
+import signupSchema from "../validators/auth_validators.js"
 
 
 const URL = `${import.meta.env.VITE_BACKEND_URI}/api/auth/register`;
