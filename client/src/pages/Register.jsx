@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom"
 import {useAuth} from "../store/auth"
 import {toast} from "react-toastify"
 
-const URL = "${import.meta.env.VITE_BACKEND_URI}/api/auth/register";
+const URL = `${import.meta.env.VITE_BACKEND_URI}/api/auth/register`;
 
 function Register() {
   const [user, setUser] = useState({
