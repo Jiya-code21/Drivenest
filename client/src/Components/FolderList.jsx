@@ -57,14 +57,14 @@ useEffect(()=>{
   // Fetch folders & images from backend, filter by parentId and searchQuery
 const fetchFoldersAndImages=async()=>{
   try{
-    const folderRes = await fetch("${import.meta.env.VITE_BACKEND_URI}/api/folders", {
+    const folderRes = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/folders`, {
       headers:{ Authorization:`Bearer ${token}` 
     },
     })
 
     const folderData=await folderRes.json()
 
-    const imagesRes=await fetch("${import.meta.env.VITE_BACKEND_URI}/api/images",{
+    const imagesRes=await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/images`,{
       headers:{Authorization:`Bearer ${token}` },
     })
 
@@ -166,7 +166,7 @@ console.log("All relevant folder IDs:",allRelevantFolderIds)
   const handleCreateFolder = async () => {
     if (!folderName.trim()) return alert("Folder name cannot be empty!")
     try {
-      const res = await fetch("${import.meta.env.VITE_BACKEND_URI}/api/folders/create", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/folders/create`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -269,7 +269,7 @@ console.log("All relevant folder IDs:",allRelevantFolderIds)
     formData.append("folderId", folderId)
 
     try {
-      const res = await fetch("${import.meta.env.VITE_BACKEND_URI}/api/upload", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/upload`, {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,
@@ -292,7 +292,7 @@ console.log("All relevant folder IDs:",allRelevantFolderIds)
   const handleDeleteImage = async (imageId) => {
     if (!window.confirm("Are you sure you want to delete this image?")) return;
     try {
-      const res = await fetch(`http://localhost:5000/api/images/${imageId}`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/images/${imageId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       })
