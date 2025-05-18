@@ -79,7 +79,7 @@ main {
 
 /* Toastify container at top-center */
 .Toastify__toast-container--top-center {
-  top: 64px !important;
+  top: 72px !important; /* Slightly below 64px header */
   left: 50% !important;
   transform: translateX(-50%);
   width: 100%;
@@ -88,7 +88,8 @@ main {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  pointer-events: none; /* Allow background interaction when no toast */
+  pointer-events: none;
+  z-index: 9000 !important; /* BELOW the header z-index (10000) */
 }
 
 /* Each individual toast */
@@ -97,13 +98,13 @@ main {
   max-width: 500px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  pointer-events: auto; /* Allow interaction with the toast */
+  pointer-events: auto;
 }
 
 /* Mobile adjustments */
 @media (max-width: 768px) {
   .Toastify__toast-container--top-center {
-    top: 56px !important;
+    top: 64px !important; /* Just below mobile navbar (56px) */
     padding: 0 0.5rem;
   }
 }
