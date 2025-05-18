@@ -15,9 +15,10 @@ const app=express()
 const __filename=fileURLToPath(import.meta.url)
 const __dirname=path.dirname(__filename)
 
+const FRONTEND_URL = process.env.VITE_FRONTEND_URI
 // CORS config for frontend at localhost:5173
 app.use(cors({
-  origin: "http://localhost:5173",
+ origin: FRONTEND_URL,
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
