@@ -7,6 +7,8 @@ import Login from "./pages/Login"
 import Logout from "./pages/Logout"
 import Dashboard from "./pages/Dashboard"
 import Error from "./pages/Error"
+import {ToastContainer} from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 import "./App.css"
 
 function App(){
@@ -26,6 +28,20 @@ function App(){
       </Routes>
 
       <Footer />
+
+      
+      <ToastContainer
+        position="top-center" 
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </BrowserRouter>
   );
 }
