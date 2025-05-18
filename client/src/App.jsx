@@ -30,8 +30,10 @@ function App(){
       <Footer />
 
       
+
       <ToastContainer
-        position="top-center" 
+        position="top-center"
+        style={{ top: "70px" }} // adjust if your navbar height is different
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
