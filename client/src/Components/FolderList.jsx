@@ -19,7 +19,7 @@ function FolderList({parentId=null}){
   const fetchSearchResults=async()=>{
   try{
     const token=localStorage.getItem("token")
-    const res=await fetch(`http://localhost:5000/api/search?query=${searchQuery}`,{
+    const res=await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/search?query=${searchQuery}`,{
       headers:{
         Authorization:`Bearer ${token}`,
       },
@@ -57,14 +57,14 @@ useEffect(()=>{
   // Fetch folders & images from backend, filter by parentId and searchQuery
 const fetchFoldersAndImages=async()=>{
   try{
-    const folderRes = await fetch("http://localhost:5000/api/folders", {
+    const folderRes = await fetch("${import.meta.env.VITE_BACKEND_URI}/api/folders", {
       headers:{ Authorization:`Bearer ${token}` 
     },
     })
 
     const folderData=await folderRes.json()
 
-    const imagesRes=await fetch("http://localhost:5000/api/images",{
+    const imagesRes=await fetch("${import.meta.env.VITE_BACKEND_URI}/api/images",{
       headers:{Authorization:`Bearer ${token}` },
     })
 
@@ -166,7 +166,7 @@ console.log("All relevant folder IDs:",allRelevantFolderIds)
   const handleCreateFolder = async () => {
     if (!folderName.trim()) return alert("Folder name cannot be empty!")
     try {
-      const res = await fetch("http://localhost:5000/api/folders/create", {
+      const res = await fetch("${import.meta.env.VITE_BACKEND_URI}/api/folders/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -197,7 +197,7 @@ console.log("All relevant folder IDs:",allRelevantFolderIds)
     )
       return;
     try {
-      const res = await fetch(`http://localhost:5000/api/folders/${folderId}`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/folders/${folderId}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       })
@@ -224,7 +224,7 @@ console.log("All relevant folder IDs:",allRelevantFolderIds)
   const saveRenameFolder = async () => {
     if (!renameFolderValue.trim()) return alert("Folder name cannot be empty!")
     try {
-      const res = await fetch(`http://localhost:5000/api/folders/${renamingFolderId}`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/folders/${renamingFolderId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -269,7 +269,7 @@ console.log("All relevant folder IDs:",allRelevantFolderIds)
     formData.append("folderId", folderId)
 
     try {
-      const res = await fetch("http://localhost:5000/api/upload", {
+      const res = await fetch("${import.meta.env.VITE_BACKEND_URI}/api/upload", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
         body: formData,
@@ -322,7 +322,7 @@ console.log("All relevant folder IDs:",allRelevantFolderIds)
   const saveRenameImage = async () => {
     if (!renameImageValue.trim()) return alert("Image name cannot be empty!")
     try {
-      const res = await fetch(`http://localhost:5000/api/images/${renamingImageId}`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/images/${renamingImageId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -579,7 +579,7 @@ console.log("All relevant folder IDs:",allRelevantFolderIds)
             onClick={(e) => e.stopPropagation()}
           >
             <img
-              src={`http://localhost:5000${previewImage.imageUrl}`}
+              src={`${import.meta.env.VITE_BACKEND_URI}${previewImage.imageUrl}`}
               alt={previewImage.originalName}
               className="max-w-full max-h-[80vh] object-contain"
             />
