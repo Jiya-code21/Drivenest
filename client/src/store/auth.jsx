@@ -30,7 +30,7 @@ export const AuthProvider=({children})=>{
   const userAuthentication=async()=>{
     try {
       setIsLoading(true);
-      const response = await fetch("${import.meta.env.VITE_BACKEND_URI}/api/auth/user", {
+      const response = await fetch(`${import.meta.env.VITE_BACKEND_URI}/api/auth/user`, {
         method:"GET",
         headers:{
           Authorization:`Bearer ${token}`,
