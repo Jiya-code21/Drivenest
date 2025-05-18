@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import {useAuth} from "../store/auth"
 import {toast} from "react-toastify"
+import { loginSchema } from "../validators/auth_validators.js";
 
 const URL=`${import.meta.env.VITE_BACKEND_URI}/api/auth/login`
 
@@ -27,6 +28,7 @@ const [showPassword,setShowPassword]=useState(false)
     e.preventDefault()
 
     try {
+      await loginSchema.parseAsync(user);
       const response=await fetch(URL, {
         method:"POST",
         headers: {
@@ -56,8 +58,16 @@ await userAuthentication();
         console.log("Invalid credentials")
       }
     } catch (error) {
-      console.log("Login error:", error)
+       if (error.name === "ZodError") {
+      error.errors.forEach((err) => {
+        toast.error(err.message);
+      });
+    } 
+      else {
+      console.error("Login error:", error);
+      toast.error("Something went wrong");
     }
+  }
   }
 
   return (
