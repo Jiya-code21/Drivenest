@@ -1,5 +1,5 @@
 import express from "express"
-import Folder from "../models/folder.js"
+import Folder from "../models/Folder.js"
 import authMiddleware from "../middleware/auth_middleware.js"
 
 const router=express.Router()
