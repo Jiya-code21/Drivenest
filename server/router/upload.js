@@ -38,8 +38,9 @@ router.post("/",upload.single("image"),(req,res)=>{
   if(!req.file){
     return res.status(400).json({ message: "No file uploaded" })
   }
+const BACKEND_URL = process.env.VITE_BACKEND_URI || 'http://localhost:5000'
 
-  const imageUrl=`/uploads/${req.file.filename}`
+const imageUrl = `${BACKEND_URL}/uploads/${req.file.filename}`
 
   // Optionally, save the image information in the database (MongoDB)
   const newImage = new Image({
