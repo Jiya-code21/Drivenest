@@ -80,15 +80,16 @@ main {
   left: 50% !important;
   transform: translateX(-50%);
   max-width: 500px;
-  width: calc(100% - 2rem); /* full width minus padding */
+  width: calc(100% - 2rem);
   padding: 0 1rem;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   pointer-events: none;
   z-index: 9000 !important; /* below header */
-  overflow: visible !important; /* avoid clipping */
+  overflow: visible !important;
 }
+
 
 /* Each toast */
 .Toastify__toast {
