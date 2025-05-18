@@ -2,6 +2,8 @@ import React, {useState} from 'react'
 import {useNavigate} from "react-router-dom"
 import {useAuth} from "../store/auth"
 import {toast} from "react-toastify"
+import { signupSchema } from "../validators/auth_validators.js"
+
 
 const URL = `${import.meta.env.VITE_BACKEND_URI}/api/auth/register`;
 
@@ -26,6 +28,7 @@ function Register() {
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try {
+          await signupSchema.parseAsync(user)
       const response=await fetch(URL, {
         method:"POST",
         headers:{
@@ -49,8 +52,17 @@ function Register() {
       } else {
   toast.error(res_data.message || "Registration failed ")
       }
-    } catch (error) {
-      console.log("register", error)
+    }
+    catch (error) {
+        if (error.name === "ZodError") {
+      error.errors.forEach((err) => {
+        toast.error(err.message)
+      })
+    }
+        else {
+      console.error("register",error)
+      toast.error("Something went wrong")
+    }
     }
   };
 
