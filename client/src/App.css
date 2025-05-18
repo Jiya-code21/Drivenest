@@ -50,7 +50,11 @@ nav ul li a {
 nav ul li a.active {
   border-bottom: 2px solid white;
 }
+.Toastify__toast-container {
+  z-index: 11000 !important;
+}
 
 main {
-  padding: 2rem
+  padding: 6rem 2rem 2rem;
 }
+
