@@ -40,7 +40,8 @@ router.post("/",upload.single("image"),(req,res)=>{
   }
 const BACKEND_URL = process.env.VITE_BACKEND_URI || 'http://localhost:5000'
 
-const imageUrl = `${BACKEND_URL}/uploads/${req.file.filename}`
+const imageUrl = `${backendUrl.replace("https", "http")}/uploads/${filename}`;
+
 
   // Optionally, save the image information in the database (MongoDB)
   const newImage = new Image({
