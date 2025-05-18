@@ -480,7 +480,7 @@ console.log("All relevant folder IDs:",allRelevantFolderIds)
                         className="border rounded overflow-hidden flex flex-col items-center cursor-pointer"
                       >
                         <img
-                          src={`http://localhost:5000${img.imageUrl}`}
+                          src={`${import.meta.env.VITE_BACKEND_URI}${img.imageUrl}`}
                           alt={img.originalName}
                           className="object-contain w-full max-h-40"
                           onClick={() => openImagePreview(img)}
