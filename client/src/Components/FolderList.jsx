@@ -554,12 +554,17 @@ console.log("All relevant folder IDs:",allRelevantFolderIds)
                       accept="image/*"
                       onChange={(e) => handleFileChange(e, folder._id)}
                     />
-                    <button
-                      type="submit"
-                      className="bg-green-600 text-white px-3 py-1 rounded hover:bg-green-700"
-                    >
-                      Upload Image
-                    </button>
+                  <button
+  type="submit"
+  className="bg-green-600 text-white rounded hover:bg-green-700
+             px-4 py-2 text-base
+             sm:px-5 sm:py-3 sm:text-lg
+             md:px-6 md:py-3 md:text-xl
+             "
+>
+  Upload Image
+</button>
+
                   </form>
                 </div>
               </div>
