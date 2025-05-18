@@ -6,23 +6,24 @@ body {
   background-color: #f7f7f7;
   color: #333;
 }
-.Toastify__toast-container {
-  z-index: 11000 !important;
-}
+
+/* Fixed header */
 header {
-  position: fixed; /* fix it at the top */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #040404;
+  height: 64px;               
   padding: 1rem 2rem;
+  background-color: #040404;
   color: white;
-  z-index: 10000; /* higher than Toastify */
+  z-index: 10000;           
+  display: flex;
+  align-items: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-
-
+/* Container inside header */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -56,6 +57,39 @@ nav ul li a.active {
 
 
 main {
-  padding: 6rem 2rem 2rem;
+  padding: 64px 2rem 2rem;  
+}
+@media (max-width: 768px) {
+  header {
+    height: 56px;
+    padding: 0.75rem 1rem;
+  }
+
+  main {
+    padding-top: 56px;
+  }
 }
 
+
+.Toastify__toast-container {
+  z-index: 11000 !important; 
+}
+
+.Toastify__toast-container--top-center {
+  top: 64px !important;         
+  left: 50% !important;
+  transform: translateX(-50%);
+  max-width: 500px;
+  width: 90vw;                 
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .Toastify__toast-container--top-center {
+    top: 56px !important;   
+  }
+}
+.Toastify__toast {
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
