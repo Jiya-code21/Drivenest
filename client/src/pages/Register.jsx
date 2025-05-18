@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import {useNavigate} from "react-router-dom"
 import {useAuth} from "../store/auth"
 import {toast} from "react-toastify"
-import {signupSchema} from "../validators/auth_validators.js"
+
 
 
 const URL = `${import.meta.env.VITE_BACKEND_URI}/api/auth/register`;
@@ -28,7 +28,7 @@ function Register() {
   const handleSubmit=async(e)=>{
     e.preventDefault();
     try {
-          await signupSchema.parseAsync(user)
+        
       const response=await fetch(URL, {
         method:"POST",
         headers:{
@@ -54,17 +54,10 @@ function Register() {
       }
     }
     catch (error) {
-        if (error.name === "ZodError") {
-      error.errors.forEach((err) => {
-        toast.error(err.message)
-      })
-    }
-        else {
       console.error("register",error)
       toast.error("Something went wrong")
     }
-    }
-  };
+  }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-indigo-200 px-4">
