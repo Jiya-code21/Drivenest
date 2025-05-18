@@ -9,7 +9,7 @@ function Home() {
       if (!token) return;
 
       try {
-        const res=await fetch("http://localhost:5000/api/auth/user", {
+        const res=await fetch("${import.meta.env.VITE_BACKEND_URI}/api/auth/user", {
           method:"GET",
           headers:{
             Authorization: `Bearer ${token}`,
