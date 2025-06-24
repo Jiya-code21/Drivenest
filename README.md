@@ -22,20 +22,3 @@ Drivenest is a full-stack MERN (MongoDB, Express, React, Node.js) application th
 |----------|---------|----------|-------|
 | React    | Express | MongoDB  | Node.js, JWT, Bcrypt, Multer, Zod |
 
-📁 Project Structure
-
-Drivenest/
-├── client/ # React frontend
-├── server/ # Node.js backend
-│ ├── controllers/ # Logic for handling requests
-│ ├── middleware/ # Authentication, error handling
-│ ├── models/ # MongoDB models
-│ ├── router/ # API route definitions
-│ ├── uploads/ # Uploaded files
-│ ├── utils/ # Helper functions
-│ ├── validators/ # Input validation schemas
-│ ├── server.js # Entry point
-│ └── .env # Environment variables (ignored in Git)
-├── .gitignore
-├── package.json
-└── README.md
